@@ -73,4 +73,124 @@ if __name__ == '__main__':
     print sorted(list(set(arr)))[-2]
     
 
-8. 
+8. Given the names and grades for each student in a Physics class of N students, store them in a nested list and print the name(s) of any student(s) having the second lowest grade.
+Note: If there are multiple students with the same grade, order their names alphabetically and print each name on a new line.
+
+if __name__ == '__main__':
+    l1= []
+    scores=[]
+    for _ in range(int(raw_input())):
+        name = raw_input()
+        score = float(raw_input())
+        li = [name,score]
+        l1.append(li)
+        scores.append(score)
+    min1 = sorted(list(set(scores)))[1]
+    for x,y in sorted(l1):
+        if min1==y:
+            print x
+
+
+9. You have a record of N students. Each record contains the student's name, and their percent marks in Maths, Physics and Chemistry. The marks can be floating values. The user enters some integer  followed by the names and marks for  students. You are required to save the record in a dictionary data type. The user then enters a student's name. Output the average percentage marks obtained by that student, correct to two decimal places.
+
+if __name__ == '__main__':
+    n = int(raw_input())
+    student_marks = {}
+    for _ in range(n):
+        line = raw_input().split()
+        name, scores = line[0], line[1:]
+        scores = map(float, scores)
+        student_marks[name] = scores
+    query_name = raw_input()
+    for key in student_marks:
+        if key == query_name:   
+            print("{0:.2f}".format((sum(student_marks[key])/3)))
+            
+            
+10. Given an integer, N, and N space-separated integers as input, create a tuple, t, of those  integers. Then compute and print the result of hash(t)
+
+if __name__ == '__main__':
+    n = int(raw_input())
+    integer_list = map(int, raw_input().split())
+    t= tuple(integer_list)
+    print hash(t)
+    
+    
+11. You are given a string and your task is to swap cases. In other words, convert all lowercase letters to uppercase letters and vice versa
+
+def swap_case(s):
+    return s.swapcase()
+if __name__ == '__main__':
+    s = raw_input()
+    result = swap_case(s)
+    print result
+
+
+12. You are given a string. Split the string on a " " (space) delimiter and join using a - hyphen.
+
+def split_and_join(line):
+    words = line.split(" ")
+    return "-".join(words)
+if __name__ == '__main__':
+    line = raw_input()
+    result = split_and_join(line)
+    print result
+    
+ 
+ 13. You are given the firstname and lastname of a person on two different lines. Your task is to read them and print the following:
+Hello firstname lastname! You just delved into python.
+
+def print_full_name(a, b):
+    print "Hello "+a+" "+b+ "! You just delved into python."
+if __name__ == '__main__':
+    first_name = raw_input()
+    last_name = raw_input()
+    print_full_name(first_name, last_name)
+ 
+ 
+14. The first line contains a string, S. 
+The next line contains an integer N, denoting the index location and a character C separated by a space.
+
+def mutate_string(string, position, character):
+    return string[:position] + character + string[position+1:]
+if __name__ == '__main__':
+    s = raw_input()
+    i, c = raw_input().split()
+    s_new = mutate_string(s, int(i), c)
+    print s_new
+    
+
+15. In this challenge, the user enters a string and a substring. You have to print the number of times that the substring occurs in the given string. String traversal will take place from left to right, not from right to left.
+
+def count_substring(string, sub_string):
+    cnt =0
+    for x in range(0, len(string)-len(sub_string)+1):
+        if string[x:x+len(sub_string)] == sub_string:
+            cnt= cnt+1
+    return cnt
+if __name__ == '__main__':
+    string = raw_input().strip()
+    sub_string = raw_input().strip()   
+    count = count_substring(string, sub_string)
+    print count
+    
+
+16. You are given a string s and width w. 
+Your task is to wrap the string into a paragraph of width w
+
+import textwrap
+def wrap(string, max_width):
+    return textwrap.fill(string,max_width)
+if __name__ == '__main__':
+    string, max_width = raw_input(), int(raw_input())
+    result = wrap(string, max_width)
+    print result
+    
+
+17. You are asked to ensure that the first and last names of people begin with a capital letter in their passports. For example, alison heck should be capitalised correctly as Alison Heck.
+
+def solve(s):
+    return s.title()
+    
+
+18. 
